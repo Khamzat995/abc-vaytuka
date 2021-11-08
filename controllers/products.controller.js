@@ -50,8 +50,38 @@ module.exports.productsController = {
 
   getAllProducts: async (req, res) => {
     try {
-      const products = await Product.find();//.populate("genres", "name");
+      const products = await Product.find({}, {
+        stock: 1,
+        price: 1,
+        shipping: 1,
+        colors: 1,
+        category: 1,
+        reviews: 1,
+        featured: 1,
+        stars: 1,
+        name: 1,
+        description: 1,
+        company: 1,
+        images: 1
+      });//.populate("genres", "name");
       return res.json(products);
+    } catch (e) {
+      return res.status(400).json({
+        error: e.toString(),
+      });
+    }
+  },
+
+  getProductById: async (req, res) => {
+    const { id } = req.params;
+    try {
+      const product = await Product.findById(id);//.populate("genres", "name");
+      if (!product) {
+        return res.status(404).json({
+          error: "Продукт с таким ID не найден",
+        });
+      }
+      return res.json(product);
     } catch (e) {
       return res.status(400).json({
         error: e.toString(),
@@ -83,22 +113,7 @@ module.exports.productsController = {
     }
   },
 
-  getProductById: async (req, res) => {
-    const { id } = req.params;
-    try {
-      const product = await Product.findById(id);//.populate("genres", "name");
-      if (!product) {
-        return res.status(404).json({
-          error: "Продукт с таким ID не найден",
-        });
-      }
-      return res.json(product);
-    } catch (e) {
-      return res.status(400).json({
-        error: e.toString(),
-      });
-    }
-  },
+
 
   editProduct: async (req, res) => {
     const { ...body } = req.body;
