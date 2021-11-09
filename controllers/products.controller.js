@@ -75,7 +75,18 @@ module.exports.productsController = {
   getProductById: async (req, res) => {
     const { id } = req.params;
     try {
-      const product = await Product.findById(id);//.populate("genres", "name");
+      const product = await Product.findById(id);
+      // const product = await Product.findById(id, {
+      //   name: 1,
+      //   price: 1,
+      //   description: 1,
+      //   stock: 1,
+      //   stars: 1,
+      //   reviews: 1,
+      //   id: 1,
+      //   company: 1,
+      //   images: 1,
+      // });//.populate("genres", "name");
       if (!product) {
         return res.status(404).json({
           error: "Продукт с таким ID не найден",
