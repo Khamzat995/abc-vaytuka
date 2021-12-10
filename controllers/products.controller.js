@@ -125,7 +125,6 @@ module.exports.productsController = {
   },
 
 
-
   editProduct: async (req, res) => {
     const { ...body } = req.body;
     const { id } = req.params;
@@ -161,7 +160,6 @@ module.exports.productsController = {
           error: "Не удалось удалить продукт. Укажите верный ID",
         });
       }
-
       return res.json({
         message: "Продукт успешно удален",
       });
