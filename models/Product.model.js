@@ -48,70 +48,70 @@ const productSchema = new mongoose.Schema(
           type: Number,
           required: true
         },
-        thumbnails: [
-          {
-            full: [
-              {
-                height: {
-                  type: Number,
-                  required: false
-                },
-                url: {
-                  type: String,
-                  required: false
-                },
-                width: {
-                  type: Number,
-                  required: false
-                },
-              },
-            ],
-            large: [
-              {
-                height: {
-                  type: Number,
-                  required: false
-                },
-                url: {
-                  type: String,
-                  required: false
-                },
-                width: {
-                  type: Number,
-                  required: false
-                },
-              }
-            ],
-            small: [
-              {
-                height: {
-                  type: Number,
-                  required: false
-                },
-                url: {
-                  type: String,
-                  required: false
-                },
-                width: {
-                  type: Number,
-                  required: false
-                },
-              }
-            ],
-            type: {
-              type: String,
-              required: false
-            },
-            url: {
-              type: String,
-              required: false
-            },
-            width: {
-              type: Number,
-              required: false
-            },
-          }
-        ]
+        // thumbnails: [
+        //   {
+        //     full: [
+        //       {
+        //         height: {
+        //           type: Number,
+        //           required: false
+        //         },
+        //         url: {
+        //           type: String,
+        //           required: false
+        //         },
+        //         width: {
+        //           type: Number,
+        //           required: false
+        //         },
+        //       },
+        //     ],
+        //     large: [
+        //       {
+        //         height: {
+        //           type: Number,
+        //           required: false
+        //         },
+        //         url: {
+        //           type: String,
+        //           required: false
+        //         },
+        //         width: {
+        //           type: Number,
+        //           required: false
+        //         },
+        //       }
+        //     ],
+        //     small: [
+        //       {
+        //         height: {
+        //           type: Number,
+        //           required: false
+        //         },
+        //         url: {
+        //           type: String,
+        //           required: false
+        //         },
+        //         width: {
+        //           type: Number,
+        //           required: false
+        //         },
+        //       }
+        //     ],
+        //     type: {
+        //       type: String,
+        //       required: false
+        //     },
+        //     url: {
+        //       type: String,
+        //       required: false
+        //     },
+        //     width: {
+        //       type: Number,
+        //       required: false
+        //     },
+        //   }
+        // ]
       },
     ],
     shipping: {    ////перевозки, доставка

@@ -1,15 +1,23 @@
 {
-  "name": "server-backend",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "my hope is",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "start": "cross-env NODE_ENV=production node index.js",
+    "index": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "index-install": "npm install",
+    "client:install": "npm install --prefix client",
+    "client:build": "npm run build --prefix client",
+    "install-all": "concurrently \"npm run index-install\" \"npm run client-install\"",
+    "dev": "concurrently \"npm run index\" \"npm run client\""
   },
   "keywords": [],
-  "author": "",
+  "author": "Khamzat995",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^6.4.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^6.0.12"
